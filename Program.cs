@@ -9,7 +9,7 @@ AddNewProduct();
 UpdateProduct();
 RemoveProduct();
 
-void AddManyProducts()
+void AddManyProducts() // adding many products at a time db
 
 {
     var Products = new List<Product>();
@@ -26,7 +26,7 @@ void AddManyProducts()
 
 }
 
-void AddNewProduct()
+void AddNewProduct()   //adding a new product to db
 {
     var Products = new Product()
      { Name = "spactacles", Price = 50, Description = "Lens cart" };
@@ -37,7 +37,7 @@ void AddNewProduct()
 
 }
 
-void QueryProducts()
+void QueryProducts()    // fetching all the products from the db
 {
     using var context = new ProductDbContext();
     var prod = context.Products.ToList();
@@ -48,7 +48,7 @@ void QueryProducts()
     }
 
 }
-void UpdateProduct()
+void UpdateProduct()  // updating the price of an existing product with name "pears" in db
 {
     using var context = new ProductDbContext();
     var prod = context.Products.FirstOrDefault(p => p.Name == "pears");
@@ -62,7 +62,7 @@ void UpdateProduct()
 
 
 }
- void RemoveProduct()
+ void RemoveProduct() //removing all existing products with Name "pears"
 {
     using var context = new ProductDbContext();
     var prod = context.Products.Where(p=>p.Name == "pears").ToList();
